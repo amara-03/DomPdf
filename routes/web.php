@@ -14,6 +14,10 @@ use App\Http\Controllers\BookController;
 |
 */
 
+Route::get('admin/books/export',
+[App\Http\Controllers\AdminController::class, 'export'])
+    ->name('admin.book.export')->middleware('is_admin');
+
 Route::get('/', function () {
     return view('welcome');
 });

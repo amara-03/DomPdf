@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 
+use App\Export\BooksExport;
+use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -104,5 +106,18 @@ public function update_book(Request $req)
 
         $pdf   = PDF::loadview('print_books', ['books' => $books]);
         return $pdf->download('data_buku.pdf');
+    }
+    public function export()
+    {
+        return Excel::download(new BooksExport, 'books.xlsx');
+    }
+    public function import()
+    {
+        Excel::import(new BooksImport, 'books.xlsx');
+
+        $notif = array(
+            'message' => 'Import data berhasil dilakukan',
+            'alert-type' => 'success',
+        );
     }
 }

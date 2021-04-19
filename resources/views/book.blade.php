@@ -16,8 +16,12 @@
                        <button class="btn btn-primary float-right" data-toggle="modal" data-target="#tambahBukuModal"><i class="fa fa-plus"></i> Tambah Data</button>
                     </div>
                    <div class="card-body">
-                   <button class="btn btn-primary" data-toggle="modal" data-target="#tambahBukuModal"><i class="fa-plus"></i>Tambah Data</button>
+                   
                         <a href="{{ route('admin.print.books') }}" target="_blank" class="btn-secondary"><i class="fa fa-print"></i> Cetak PDF</a>
+                        <a href="{{ route('admin.book.export') }}" class="btn btn-info">Export</a>
+                        <a href="{{ route('admin.book.export') }}" class="btn btn-warning">Import</a>
+                        </div>
+                        <hr/>
                        <table id="table-data" class="table table-borderer display nowrap" style="width:100%">
                            <thead>
                                <tr>
